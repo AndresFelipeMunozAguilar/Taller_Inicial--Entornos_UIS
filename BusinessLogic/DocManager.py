@@ -32,7 +32,7 @@ class DocManager:
             self._csv_path = os.path.join(os.path.dirname(__file__), "../DataBase/chicos.csv")
             self._df = pd.read_csv(self._csv_path, header=None)  # Leer CSV sin nombres de columnas
 
-            self._df.columns = ['Código', 'Sexo', 'Nombre', 'Edad', 'Ciudad'] 
+            self._df.columns = ['Codigo', 'Sexo', 'Nombre', 'Edad', 'Ciudad'] 
             self._initialized = True  # Marcar como inicializado
 
     def get_data_in_format(self, format):
@@ -183,4 +183,8 @@ class DocManager:
         tabla_2 = [columnas_tabla_2] + datos_tabla_2  # Datos para tkinter (lista de listas)
 
         return [tabla_1, tabla_2]
+    
+
+    def delete_row( self, codigo ):
+        print(f"Eliminando fila con código {codigo}")
 
