@@ -1,7 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
+from BusinessLogic.DocManager import DocManager
 
 class AddDocRow(ttk.Frame):
+
+    @property
+    def doc_manager(self):
+        return self._doc_manager
+
 
     @property
     def mapeo_ciudades(self):
@@ -20,18 +27,30 @@ class AddDocRow(ttk.Frame):
         }
 
     def __init__(self, parent):
+        
+        self._doc_manager = DocManager()
+        
         super().__init__(parent)
+        
         self.crear_contenido()
 
 
 
     def añadir_fila(self):
-        codigo = self.codigo_entry.get()
-        sexo = self.sexo_combobox.get()
-        nombre = self.nombre_entry.get()
-        edad = self.edad_entry.get()
-        ciudad = self.ciudad_combobox.get()
-        print(f"Código: {codigo}, Sexo: {self.mapeo_sexos.get(sexo)}, Nombre: {nombre}, Edad: {edad}, Ciudad: {self.mapeo_ciudades.get(int(ciudad))}")
+        try:
+            codigo = int(self.codigo_entry.get())
+            sexo = str(self.sexo_combobox.get())
+            nombre = str(self.nombre_entry.get())
+            edad = int(self.edad_entry.get())
+            ciudad = int(self.ciudad_combobox.get())
+        except ValueError:
+            messagebox.showerror("Error", "Por favor, ingrese valores válidos en todos los campos.")
+            return
+        
+        if self.doc_manager.add_row(codigo, sexo, nombre, edad, ciudad):
+            messagebox.showinfo("Éxito", "La fila fue añadida con éxito.")
+        else:
+            messagebox.showerror("Error", "El código ya existe.")
 
 
     def crear_contenido(self):
@@ -72,7 +91,7 @@ class AddDocRow(ttk.Frame):
 
         # Ciudad: Combobox
         tk.Label(self, text="Ciudad:").pack(anchor='w')
-        self.ciudad_combobox = ttk.Combobox(self, values=["1", "2", "3", "4"], state="readonly")
+        self.ciudad_combobox = ttk.Combobox(self, values=[1, 2, 3, 4], state="readonly")
         self.ciudad_combobox.pack(fill='x', pady=5, padx=10)
 
         # Botón para añadir fila
