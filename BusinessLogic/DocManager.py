@@ -186,9 +186,25 @@ class DocManager:
     
 
     def delete_row( self, codigo ):
+
+        succesful_delete = False
+        
         index_to_delete = self._df[self._df['Codigo'] == codigo].index
         if not index_to_delete.empty:
             self._df = self._df.drop(index_to_delete)
-            return True
-        return False
+            succesful_delete = True
+        
+        return succesful_delete
+    
+    def add_row( self, codigo, sexo, nombre, edad, ciudad ):
+
+        succesful_addition = False
+
+        if codigo not in self._df['Codigo'].values:
+            new_row = pd.DataFrame([[codigo, sexo, nombre, edad, ciudad]], columns=self._df.columns)
+            self._df = pd.concat([self._df, new_row], ignore_index=True)
+            succesful_addition = True
+
+
+        return succesful_addition
 
