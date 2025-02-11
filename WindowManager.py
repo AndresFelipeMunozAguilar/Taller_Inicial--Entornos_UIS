@@ -60,7 +60,7 @@ button_frame = tk.Frame(main_frame, bg="lightgray")
 button_frame.pack(side=tk.LEFT, fill=tk.Y, padx=(0, 10))
 
 # Crear botón para la opción A con anchura especificada
-optionABttn = tk.Button(button_frame, text="a. Cargar Datos.", font=("Arial", 14), width=20, anchor='w')
+optionABttn = tk.Button(button_frame, text="a. Mostrar Datos.", font=("Arial", 14), width=20, anchor='w')
 optionABttn.pack(pady=(10, 0), padx=(15, 0), anchor='w')
 
 # Crear botón para la opción B con anchura especificada
@@ -94,6 +94,10 @@ def aButtonEvent():
     Función que se ejecuta al presionar el botón optionABttn.
     Se encarga de obtener los datos del ICBF y mostrarlos en una tabla.
     '''
+
+    # Limpiar la tabla antes de mostrar los nuevos datos
+    for widget in table_frame.winfo_children():
+        widget.destroy()
 
     data = doc_manager.get_data_in_format("lista")
 

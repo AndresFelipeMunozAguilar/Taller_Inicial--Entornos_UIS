@@ -186,5 +186,9 @@ class DocManager:
     
 
     def delete_row( self, codigo ):
-        print(f"Eliminando fila con código {codigo}")
+        index_to_delete = self._df[self._df['Codigo'] == codigo].index
+        if not index_to_delete.empty:
+            self._df = self._df.drop(index_to_delete)
+            return True
+        return False
 
