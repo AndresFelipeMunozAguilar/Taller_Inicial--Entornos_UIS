@@ -6,7 +6,7 @@ El presente código corresponde a la solución desarrollada por el estudiante An
 
 ## Ejecución del programa
 El archivo principal a través del cual se ejecuta este programa se denomina **WindowsManager** y se encuentra ubicado en la carpeta raíz del proyecto. Mediante la ejecución de este archivo, es posible acceder y visualizar la funcionalidad del programa en su totalidad.
-Por tal motivo, para poder ejecutar el programa, sólo es necesario ejecutar el archivo "WindowManager.py"
+Por tal motivo, para poder ejecutar el programa, sólo es necesario ejecutar el archivo "WindowManager.py" en el editor de código de preferencia.
 
 ## Requerimientos
 
