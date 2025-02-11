@@ -18,7 +18,10 @@ class DelDocRow(ttk.Frame):
         codigo = self.codigo_entry.get()
         try:
             codigo = int(codigo)
-            self.doc_manager.delete_row(codigo)
+            if self.doc_manager.delete_row(codigo):
+                messagebox.showinfo("Éxito", "La eliminación fue exitosa.")
+            else:
+                messagebox.showerror("Error", "Código no encontrado.")
         except ValueError:
             messagebox.showwarning("Advertencia", "El código debe ser un número.")
 
