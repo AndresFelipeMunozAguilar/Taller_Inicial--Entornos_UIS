@@ -3,6 +3,8 @@ import numpy as np
 import os
 
 class DocManager:
+    _instance = None  # Variable de clase para almacenar la única instancia
+
     @property
     def csv_path(self):
         return self._csv_path
@@ -20,23 +22,18 @@ class DocManager:
             4: 'Piedecuesta'
         }
 
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super(DocManager, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
 
     def __init__(self):
-        self._csv_path = os.path.join(os.path.dirname(__file__), "../DataBase/chicos.csv")
-        self._df = pd.read_csv(self._csv_path, header=None)  # Leer CSV sin nombres de columnas
+        if not hasattr(self, '_initialized'):  # Verificar si ya ha sido inicializado
+            self._csv_path = os.path.join(os.path.dirname(__file__), "../DataBase/chicos.csv")
+            self._df = pd.read_csv(self._csv_path, header=None)  # Leer CSV sin nombres de columnas
 
-        
-        '''
-        Debido a que la lista de listas no tiene un encabezado, se crea una lista
-        con los nombres de las columnas que se encuentran en el documento guía
-        enviado por el docente
-        '''
-        self._df.columns = ['Código', 'Sexo', 'Nombre', 'Edad', 'Ciudad'] 
-
-        
-      
-
-
+            self._df.columns = ['Código', 'Sexo', 'Nombre', 'Edad', 'Ciudad'] 
+            self._initialized = True  # Marcar como inicializado
 
     def get_data_in_format(self, format):
 
@@ -106,8 +103,6 @@ class DocManager:
         Retorna:
         Una lista de listas con los datos del informe especial.
         '''
-
-        # df_copy = self._df.copy()  # Copiar el dataframe para no modificar el original
 
 
         total_children = len(self._df)  # Total de niños
@@ -189,12 +184,3 @@ class DocManager:
 
         return [tabla_1, tabla_2]
 
-
-
-        
-
-# Ejemplo de uso
-doc_manager = DocManager()
-# print(doc_manager.get_data_in_format("lista"))
-lista = doc_manager.get_special_inform()
-print(f"\n{ lista[0] } \n\n{lista[1]}")
