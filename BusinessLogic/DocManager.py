@@ -22,6 +22,7 @@ class DocManager:
             4: 'Piedecuesta'
         }
 
+
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
             cls._instance = super(DocManager, cls).__new__(cls, *args, **kwargs)
@@ -220,3 +221,6 @@ class DocManager:
 
         return succesful_edition
 
+
+    def save_df_to_csv(self):
+        self._df.to_csv(self._csv_path, index=False, header=False)

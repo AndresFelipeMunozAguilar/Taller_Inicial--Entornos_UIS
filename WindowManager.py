@@ -7,6 +7,7 @@ Mostrando la información de la tabla de datos del ICBF.
 import tkinter as tk
 from BusinessLogic.DocManager import DocManager  # Importar la clase DocManager
 from Views.DocEditionModal import show_doc_edition  # Importar la función para mostrar modal
+from tkinter import messagebox
 
 
 # Crear una instancia de DocManager y obtener los datos
@@ -158,12 +159,36 @@ def bButtonEvent():
         table_frame.grid_rowconfigure(i, weight=1)
 
 
+def cButtonEvent():
+    '''
+    Función que se ejecuta al presionar el botón optionCBttn.
+    Se encarga de mostrar la ventana modal para realizar operaciones
+    con los datos del ICBF.
+    '''
+
+    show_doc_edition()
+
+
+def dButtonEvent():
+    '''
+    Función que se ejecuta al presionar el botón optionDBttn.
+    Se encarga de cerrar la aplicación.
+    '''
+
+    if messagebox.askyesno("Salir", "Si sale ahora, sus datos serán gaurdados. ¿Desea guardar los datos y salir?"):
+        doc_manager.save_df_to_csv()
+        root.destroy()
+
+    
+
 # Asignar la función aButtonEvent al botón optionABttn
 optionABttn.config(command=aButtonEvent)
 
 optionBBttn.config(command=bButtonEvent)
 
-optionCBttn.config(command=show_doc_edition)
+optionCBttn.config(command=cButtonEvent)
+
+optionDBttn.config(command=dButtonEvent)
 #=======================================================================================================
 
 
