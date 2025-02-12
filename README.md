@@ -19,11 +19,14 @@ Para la ejecución del código, es necesario contar con los siguientes requisito
 
 - **Python 3.13.2**
 - **Visual Studio Code** or **Visual Studio IDE**
-- **Pandas** (biblioteca para la manipulación de datos en CSV)
+- **Pandas** (Biblioteca para la manipulación de datos en CSV)
+- **Tkinter** (Biblioteca para construcción de la GUI)
 
 Si alguna de estas dependencias no está instalada, se recomienda su instalación mediante el siguiente comando:
 
 ```sh
 pip install pandas
+
+pip install tkinter
 ```
 
