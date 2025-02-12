@@ -6,7 +6,7 @@ El presente código corresponde a la solución desarrollada por el estudiante An
 
 ## Ejecución del programa
 El archivo principal a través del cual se ejecuta este programa se denomina **WindowManager** y se encuentra ubicado en la carpeta raíz del proyecto. Mediante la ejecución de este archivo, es posible acceder y visualizar la funcionalidad del programa en su totalidad.
-Por tal motivo, para poder ejecutar el programa, sólo es necesario ejecutar el archivo "WindowManager.py" en el editor de código de preferencia.
+Por tal motivo, para poder ejecutar el programa, sólo es necesario ejecutar el archivo "WindowManager.py" en el editor de código de preferencia (Visual Studio Code recomendado).
 
 ### Operaciones con el documento
 Para utilizar las función de edición, eliminación y adición de filas, se debe seleccionar la opción **C (Operaciones)** y acceder a la pestaña correspondiente: **"Edit Row"**, **"Delete Row"** y **"Add Row"**, respectivamente. Una vez allí, es necesario ingresar los datos que se solicitan en cada formulario y presionar el botón de acción: **"Editar fila"**, **"Eliminar fila"** y **"Añadir fila"**, respectivamente. Posteriormente, se mostrará un mensaje modal que indicará si la operación se ha realizado con éxito o si ha ocurrido un error. Para visualizar los cambios reflejados en los datos, se debe hacer clic nuevamente en la opción **"Mostrar Datos"**.
