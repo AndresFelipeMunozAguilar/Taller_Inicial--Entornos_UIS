@@ -207,4 +207,17 @@ class DocManager:
 
 
         return succesful_addition
+    
+    def edit_row( self, codigo, columna, valor):
+
+        succesful_edition = False
+        print(f'Codigo: {codigo}')
+
+        if int(codigo) in self._df['Codigo'].values:
+            
+            self._df.loc[self._df['Codigo'] == codigo, columna] = valor
+            succesful_edition = True
+            
+
+        return succesful_edition
 
