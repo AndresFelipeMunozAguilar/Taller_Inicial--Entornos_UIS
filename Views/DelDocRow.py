@@ -38,7 +38,7 @@ class DelDocRow(ttk.Frame):
         self.codigo_entry = tk.Entry(formulario_frame, font=("Arial", 10))
         self.codigo_entry.grid(row=0, column=1, padx=5, pady=5)
 
-        eliminar_button = tk.Button(self, text="Eliminar")
+        eliminar_button = tk.Button(self, text="Eliminar fila")
         eliminar_button.pack(pady=10)
 
         eliminar_button.config(command=self.delete_row)

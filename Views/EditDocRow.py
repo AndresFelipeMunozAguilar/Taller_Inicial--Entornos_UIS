@@ -110,7 +110,7 @@ class EditDocRow(ttk.Frame):
         self.entry_valor.pack(fill='x', anchor='w', padx=10, pady=(0, 10))
 
         # Añadir el botón
-        boton = tk.Button(self, text="Imprimir Valores", command=self.edit_row)
+        boton = tk.Button(self, text="Editar fila", command=self.edit_row)
         boton.pack(pady=10)
 
 
