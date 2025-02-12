@@ -14,6 +14,13 @@ class EditDocRow(ttk.Frame):
             3: 'Florida',
             4: 'Piedecuesta'
         }
+    
+    @property
+    def mapeo_sexos(self):
+        return{
+            'F': 'Femenino',
+            'M': 'Masculino'
+        }
 
     @property
     def doc_manager(self):
@@ -52,8 +59,18 @@ class EditDocRow(ttk.Frame):
             
 
         try:
+            error_text = None
+
             if ((campo == 'Ciudad') and (valor not in self.mapeo_ciudades)):
-                raise ValueError(f"Ciudad no encontrada. La ciudad debe ser un número entre {min(self.mapeo_ciudades.keys())} y {max(self.mapeo_ciudades.keys())}")
+                error_text = f"Ciudad no encontrada. La ciudad debe ser un número entre {min(self.mapeo_ciudades.keys())} y {max(self.mapeo_ciudades.keys())}"
+            elif ((campo == 'Sexo') and (valor not in self.mapeo_sexos)):
+                sexos = ", ".join(self.mapeo_sexos.keys())
+                error_text = f"Sexo no encontrado. El sexo debe tener alguno de estos valores: {sexos}."
+
+
+            if error_text:
+                raise ValueError(error_text)
+                        
         except ValueError as e:
             messagebox.showerror("Error", str(e))
             return
