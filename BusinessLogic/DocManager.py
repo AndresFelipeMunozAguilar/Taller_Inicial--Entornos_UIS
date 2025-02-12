@@ -211,7 +211,6 @@ class DocManager:
     def edit_row( self, codigo, columna, valor):
 
         succesful_edition = False
-        print(f'Codigo: {codigo}')
 
         if int(codigo) in self._df['Codigo'].values:
             
