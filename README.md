@@ -22,6 +22,7 @@ Para la ejecución del código, es necesario contar con los siguientes requisito
 - **Pandas** (Biblioteca para la manipulación de datos en CSV)
 - **Tkinter** (Biblioteca para construcción de la GUI)
 - **Code Runner** (Extensión de VS Code para ejecutar código)
+- **Python Extension for Vs Code by Microsoft**
 
 Si alguna de estas dependencias no está instalada, se recomienda su instalación mediante el siguiente comando:
 
