@@ -16,6 +16,7 @@ Para utilizar las función de edición, eliminación y adición de filas, se deb
 Para la ejecución del código, es necesario contar con los siguientes requisitos previamente instalados:
 
 - **Python 3.13.2**
+- **Visual Studio Code** or **Visual Studio IDE**
 - **Pandas** (biblioteca para la manipulación de datos en CSV)
 
 Si alguna de estas dependencias no está instalada, se recomienda su instalación mediante el siguiente comando:
