@@ -1,4 +1,6 @@
 # README
+**Estudiante:** Andrés Felipe Muñoz Aguilar 
+**Código:** 2210087
 
 ## Introducción
 
